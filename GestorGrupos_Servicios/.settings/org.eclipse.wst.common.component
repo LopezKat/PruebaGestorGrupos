@@ -3,9 +3,6 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <dependent-module archiveName="Bloque_Logging-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Bloque_Logging/Bloque_Logging">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="Bloque_Mensajes-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Bloque_Mensajes/Bloque_Mensajes">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -26,9 +23,6 @@
         </dependent-module>
         <dependent-module archiveName="GestorGrupos_Datos-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/GestorGrupos_Datos/GestorGrupos_Datos">
             <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/" handle="module:/overlay/slf/?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
-            <dependency-type>consumes</dependency-type>
         </dependent-module>
         <property name="context-root" value="GestorGrupos_Servicios"/>
         <property name="java-output-path" value="/GestorGrupos_Servicios/build/classes"/>
