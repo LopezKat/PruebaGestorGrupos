@@ -6,14 +6,12 @@ import co.edu.uniremington.gestorgrupos.dto.PersonaDTO;
 
 public interface IPersonaDAO {
 	
-	void crear(PersonaDTO persona);
+	void crear(PersonaDTO personaDTO);
 
-	void modificar(PersonaDTO persona);
+	void modificar(PersonaDTO personaDTO);
 
-	void activar(PersonaDTO persona);
+	void cambiarFechaBaja(PersonaDTO personaDTO);
 
-	void desactivar(PersonaDTO persona);
-
-	List<PersonaDTO> consultar(PersonaDTO persona);
+	List<PersonaDTO> consultar(PersonaDTO personaDTO);
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import co.edu.uniremington.gestorgrupos.dto.TipoProgramaDTO;
 
 public interface ITipoProgramaDAO {
+
 	void crear(TipoProgramaDTO tipoProgramaDTO);
 
 	void modificar(TipoProgramaDTO tipoProgramaDTO);

@@ -20,21 +20,15 @@ public class TipoNotaSQLServerDAO implements ITipoNotaDAO{
 	}
 
 	@Override
-	public void activar(TipoNotaDTO tipoNotaDTO) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void desactivar(TipoNotaDTO tipoNotaDTO) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public List<TipoNotaDTO> consultar(TipoNotaDTO tipoNotaDTO) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void cambiarFechaBaja(TipoNotaDTO tipoNotaDTO) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

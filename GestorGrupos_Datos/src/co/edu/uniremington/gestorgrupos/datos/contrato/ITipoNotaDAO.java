@@ -10,9 +10,7 @@ public interface ITipoNotaDAO {
 
 	void modificar(TipoNotaDTO tipoNotaDTO);
 
-	void activar(TipoNotaDTO tipoNotaDTO);
-
-	void desactivar(TipoNotaDTO tipoNotaDTO);
+	void cambiarFechaBaja(TipoNotaDTO tipoNotaDTO);
 
 	List<TipoNotaDTO> consultar(TipoNotaDTO tipoNotaDTO);
 

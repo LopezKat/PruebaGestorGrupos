@@ -6,14 +6,12 @@ import co.edu.uniremington.gestorgrupos.dto.ProfesorDTO;
 
 public interface IProfesorDAO {
 
-	void crear(ProfesorDTO profesor);
+	void crear(ProfesorDTO profesorDTO);
 
-	void modificar(ProfesorDTO profesor);
+	void modificar(ProfesorDTO profesorDTO);
 
-	void activar(ProfesorDTO profesor);
+	void cambiarFechaBaja(ProfesorDTO profesorDTO);
 
-	void desactivar(ProfesorDTO profesor);
-
-	List<ProfesorDTO> consultar(ProfesorDTO profesor);
+	List<ProfesorDTO> consultar(ProfesorDTO profesorDTO);
 	
 }

@@ -8,33 +8,27 @@ import co.edu.uniremington.gestorgrupos.dto.PersonaDTO;
 public class PersonaSQLServerDAO implements IPersonaDAO{
 
 	@Override
-	public void crear(PersonaDTO persona) {
+	public void crear(PersonaDTO personaDTO) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void modificar(PersonaDTO persona) {
+	public void modificar(PersonaDTO personaDTO) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void activar(PersonaDTO persona) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void desactivar(PersonaDTO persona) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<PersonaDTO> consultar(PersonaDTO persona) {
+	public List<PersonaDTO> consultar(PersonaDTO personaDTO) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void cambiarFechaBaja(PersonaDTO personaDTO) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

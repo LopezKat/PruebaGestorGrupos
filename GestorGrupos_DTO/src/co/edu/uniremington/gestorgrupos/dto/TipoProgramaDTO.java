@@ -5,9 +5,6 @@ import java.util.Date;
 public class TipoProgramaDTO {
 	private int codigo;
 	private String nombre;
-
-	// Agregar estos dos campos en todas las clases y aplicar el GET y el SET;
-	// ademas hacer la tabla Grupos
 	private Date fecha_baja;
 	private String estado;
 
