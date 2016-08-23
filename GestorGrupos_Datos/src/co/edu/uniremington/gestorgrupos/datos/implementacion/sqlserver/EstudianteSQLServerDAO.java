@@ -9,9 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.edu.uniremington.gestorgrupos.datos.contrato.IEstudianteDAO;
-import co.edu.uniremington.gestorgrupos.dto.DiaDTO;
 import co.edu.uniremington.gestorgrupos.dto.EstudianteDTO;
-import co.edu.uniremington.gestorgrupos.dto.PersonaDTO;
 import co.edu.uniremington.gestorgrupos.transversal.excepciones.GestorGruposException;
 
 public class EstudianteSQLServerDAO implements IEstudianteDAO{

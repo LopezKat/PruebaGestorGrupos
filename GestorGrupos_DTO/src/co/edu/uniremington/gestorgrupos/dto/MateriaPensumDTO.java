@@ -1,7 +1,5 @@
 package co.edu.uniremington.gestorgrupos.dto;
 
-import java.util.Date;
-
 public class MateriaPensumDTO {
 
 	private int codigo;
