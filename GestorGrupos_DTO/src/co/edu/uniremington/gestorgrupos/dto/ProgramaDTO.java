@@ -3,12 +3,12 @@ package co.edu.uniremington.gestorgrupos.dto;
 import java.util.Date;
 
 public class ProgramaDTO {
+
 	private int codigo;
 	private String nombre;
 	private TipoProgramaDTO tipoPrograma;
-	private Date fechaBaja;
+	private Date fecha_Baja;
 	private String estado;
-	
 
 	public int getCodigo() {
 		return codigo;
@@ -25,7 +25,7 @@ public class ProgramaDTO {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	public TipoProgramaDTO getTipoPrograma() {
 		return tipoPrograma;
 	}
@@ -34,12 +34,12 @@ public class ProgramaDTO {
 		this.tipoPrograma = tipoPrograma;
 	}
 
-	public Date getFechaBaja() {
-		return fechaBaja;
+	public Date getFecha_Baja() {
+		return fecha_Baja;
 	}
 
-	public void setFechaBaja(Date fechaBaja) {
-		this.fechaBaja = fechaBaja;
+	public void setFecha_Baja(Date fecha_Baja) {
+		this.fecha_Baja = fecha_Baja;
 	}
 
 	public String getEstado() {

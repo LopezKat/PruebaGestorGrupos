@@ -3,6 +3,7 @@ package co.edu.uniremington.gestorgrupos.dto;
 import java.util.Date;
 
 public class TipoPeriodoAcademicoDTO {
+
 	private int codigo;
 	private String nombre;
 	private String descripcion;
