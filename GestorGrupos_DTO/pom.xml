@@ -21,11 +21,6 @@
   <dependencies>
   	<dependency>
   		<groupId>uniremington-bloques-comunes</groupId>
-  		<artifactId>Bloque_Logging</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>uniremington-bloques-comunes</groupId>
   		<artifactId>Bloque_Mensajes</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
@@ -42,6 +37,11 @@
   	<dependency>
   		<groupId>uniremington-gestor-grupos</groupId>
   		<artifactId>GestorGrupos_Transversal</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>Bloque_loggin</groupId>
+  		<artifactId>Bloque_loggin</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   </dependencies>

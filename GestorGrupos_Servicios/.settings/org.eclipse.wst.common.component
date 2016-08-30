@@ -24,6 +24,9 @@
         <dependent-module archiveName="GestorGrupos_Datos-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/GestorGrupos_Datos/GestorGrupos_Datos">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="Bloque_loggin-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Bloque_Loggin/Bloque_Loggin">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="GestorGrupos_Servicios"/>
         <property name="java-output-path" value="/GestorGrupos_Servicios/build/classes"/>
     </wb-module>
