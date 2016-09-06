@@ -20,10 +20,22 @@ import co.edu.uniremington.gestorgrupos.datos.contrato.ITipoIdentificacionDAO;
 import co.edu.uniremington.gestorgrupos.datos.contrato.ITipoNotaDAO;
 import co.edu.uniremington.gestorgrupos.datos.contrato.ITipoPeriodoAcademicoDAO;
 import co.edu.uniremington.gestorgrupos.datos.contrato.ITipoProgramaDAO;
+import co.edu.uniremington.gestorgrupos.datos.factoria.implemetacion.sqlserver.SQLServerDAOFactory;
 
 public abstract class DAOFactory {
+	
+	public static DAOFactory obtenerFactoria(String factoria){
+		
+		DAOFactory facoriaRetorno = null;
+		
+		if("SqlServerBDGrupos".intern() == factoria.intern()){
+			facoriaRetorno = new SQLServerDAOFactory();
+		}
+		
+		return facoriaRetorno;
+	}
 
-	public abstract void abrirConexion();
+	protected abstract void abrirConexion();
 
 	public abstract void cerrarConexion();
 

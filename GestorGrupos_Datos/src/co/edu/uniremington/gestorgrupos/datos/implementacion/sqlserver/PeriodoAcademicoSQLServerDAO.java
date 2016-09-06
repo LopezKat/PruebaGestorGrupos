@@ -1,5 +1,6 @@
 package co.edu.uniremington.gestorgrupos.datos.implementacion.sqlserver;
 
+import java.sql.Connection;
 import java.util.List;
 
 import co.edu.uniremington.gestorgrupos.datos.contrato.IPeriodoAcademicoDAO;
@@ -7,6 +8,13 @@ import co.edu.uniremington.gestorgrupos.dto.PeriodoAcademicoDTO;
 
 public class PeriodoAcademicoSQLServerDAO implements IPeriodoAcademicoDAO{
 
+	private Connection conexion;
+	private final static String NOMBRE_CLASE= "PeriodoAcademicoSQLServerDAO";	
+
+	public PeriodoAcademicoSQLServerDAO(Connection conexion) {
+		this.conexion = conexion;
+	}
+	
 	@Override
 	public void crear(PeriodoAcademicoDTO periodoAcademicoDTO) {
 		// TODO Auto-generated method stub
