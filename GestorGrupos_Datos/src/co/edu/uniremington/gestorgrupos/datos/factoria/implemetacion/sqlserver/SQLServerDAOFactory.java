@@ -59,116 +59,102 @@ public class SQLServerDAOFactory extends DAOFactory {
 	protected void abrirConexion() {
 
 		try {
-			// Create a variable for the connection string.
+
 			String urlConexion = "jdbc:sqlserver://%s:%s;databaseName=%s;user=%s;password=%s";
 
 			String servidorBD = "localhost\\sqlexpress";
 			String puerto = "1433";
 			String nombreBD = "BD_GESTOR_GRUPOS";
-			String usuario = "sa";
+			String usuario = "kathe";
 			String clave = "";
 
 			urlConexion = String.format(urlConexion, servidorBD, puerto, nombreBD, usuario, clave);
 
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			conexion = DriverManager.getConnection(urlConexion);
-
-		} catch (ClassNotFoundException exception) {
-			String mensajeTecnico = "Se ha presentado un problema tratando de ubicar la clase driver, debido a que no ha sido posible encontrarla";
-			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!";
-			GestorGruposException.crearExcepcion("DATOS", null, mensajeTecnico, mensajeUsuario,
-					this.getClass().getName(), "abrirConexion");
-
-		} catch (SQLException exception) {
-
-			String mensajeTecnico = "Se ha presentado un problema tratando de obtener la conexión con la fuente de información";
-			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!";
-			GestorGruposException.crearExcepcion("DATOS", null, mensajeTecnico, mensajeUsuario,
-					this.getClass().getName(), "abrirConexion");
-		} catch (Exception exception) {
-
-			String mensajeTecnico = "Se ha presentado un problema inesperado";
-			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!";
-			GestorGruposException.crearExcepcion("DATOS", null, mensajeTecnico, mensajeUsuario,
-					this.getClass().getName(), "abrirConexion");
-
+		} catch (ClassNotFoundException excepcion) {
+			String mensajeTecnico = "Se ha presentado problema tratando de ubicar la clase del driver, debido a que no ha sido posible encontrarla.";
+			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!!";
+			GestorGruposException.crearExcepcion("DATOS", excepcion, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "abrirConexion");
+		} catch (SQLException excepcion) {
+			String mensajeTecnico = "Se ha presentado problema tratando de obtener la conexión con la fuente de información.";
+			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!!";
+			GestorGruposException.crearExcepcion("DATOS", excepcion, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "abrirConexion");
+		} catch (Exception excepcion) {
+			String mensajeTecnico = "Se ha presentado problema inesperado.";
+			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!!";
+			GestorGruposException.crearExcepcion("DATOS", excepcion, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "abrirConexion");
 		}
+
 	}
 
 	@Override
 	public void cerrarConexion() {
 		try {
 			if (conexion == null || conexion.isClosed()) {
-				String mensajeTecnico = "Se ha presentado un problema tratando de cerrar la conexión";
-				String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!";
-				GestorGruposException.crearExcepcion("DATOS", null, mensajeTecnico, mensajeUsuario,
-						this.getClass().getName(), "cerrarConexion");
+				String mensajeTecnico = "Se ha presentado un problema tratando de cerrar la conexión, debido a que ya la conexión está cerrada o no fue inicializada.";
+				String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!!";
+				GestorGruposException.crearExcepcion("DATOS", null, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "cerrarConexion");
 			}
-			conexion.close();
-		} catch (SQLException exception) {
-			String mensajeTecnico = "Se ha presentado un problema tratando de cerrar la conexión";
-			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!";
-			GestorGruposException.crearExcepcion("DATOS", exception, mensajeTecnico, mensajeUsuario,
-					this.getClass().getName(), "cerrarConexion");
-		}
 
+			conexion.close();
+
+		} catch (SQLException excepcion) {
+			String mensajeTecnico = "Se ha presentado un problema tratando de cerrar la conexión, debido a que ya la conexión está cerrada o no fue inicializada.";
+			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!!";
+			GestorGruposException.crearExcepcion("DATOS", excepcion, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "cerrarConexion");
+		}
 	}
 
 	@Override
 	public void iniciarTransaccion() {
 		try {
 			if (conexion == null || conexion.isClosed()) {
-				String mensajeTecnico = "Se ha presentado un problema tratando de de iniciar la transacción";
-				String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!";
-				GestorGruposException.crearExcepcion("DATOS", null, mensajeTecnico, mensajeUsuario,
-						this.getClass().getName(), "iniciarTransaccion");
+				String mensajeTecnico = "Se ha presentado un problema tratando de iniciar la transacción, debido debido a que la conexión está cerrada o no fue inicializada.";
+				String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!!";
+				GestorGruposException.crearExcepcion("DATOS", null, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "iniciarTransaccion");
 			}
-			conexion.setAutoCommit(false);
-		} catch (SQLException exception) {
-			String mensajeTecnico = "Se ha presentado un problema tratando de iniciar la transacción";
-			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!";
-			GestorGruposException.crearExcepcion("DATOS", exception, mensajeTecnico, mensajeUsuario,
-					this.getClass().getName(), "iniciarTransaccion");
-		}
 
+			conexion.setAutoCommit(false);
+		} catch (SQLException excepcion) {
+			String mensajeTecnico = "Se ha presentado un problema tratando de iniciar la transacción.";
+			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!!";
+			GestorGruposException.crearExcepcion("DATOS", excepcion, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "iniciarTransaccion");
+		}
 	}
 
 	@Override
 	public void confirmarTransaccion() {
 		try {
 			if (conexion == null || conexion.isClosed()) {
-				String mensajeTecnico = "Se ha presentado un problema tratando de confirmar la transacción";
-				String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!";
-				GestorGruposException.crearExcepcion("DATOS", null, mensajeTecnico, mensajeUsuario,
-						this.getClass().getName(), "confirmarTransaccion");
+				String mensajeTecnico = "Se ha presentado un problema tratando de confirmar la transacción, debido debido a que la conexión está cerrada o no fue inicializada.";
+				String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!!";
+				GestorGruposException.crearExcepcion("DATOS", null, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "confirmarTransaccion");
 			}
-			conexion.commit();
-		} catch (SQLException exception) {
-			String mensajeTecnico = "Se ha presentado un problema tratando de iniciar la transacción";
-			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!";
-			GestorGruposException.crearExcepcion("DATOS", exception, mensajeTecnico, mensajeUsuario,
-					this.getClass().getName(), "confirmarTransaccion");
-		}
 
+			conexion.commit();
+		} catch (SQLException excepcion) {
+			String mensajeTecnico = "Se ha presentado un problema tratando de confirmar la transacción.";
+			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!!";
+			GestorGruposException.crearExcepcion("DATOS", excepcion, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "confirmarTransaccion");
+		}
 	}
 
 	@Override
 	public void cancelarTransaccion() {
 		try {
 			if (conexion == null || conexion.isClosed()) {
-				String mensajeTecnico = "Se ha presentado un problema tratando de de cancelar la transacción";
-				String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!";
-				GestorGruposException.crearExcepcion("DATOS", null, mensajeTecnico, mensajeUsuario,
-						this.getClass().getName(), "cancelarTransaccion");
+				String mensajeTecnico = "Se ha presentado un problema tratando de cancelar la transacción, debido debido a que la conexión está cerrada o no fue inicializada.";
+				String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!!";
+				GestorGruposException.crearExcepcion("DATOS", null, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "cancelarTransaccion");
 			}
-			conexion.rollback();
-		} catch (SQLException exception) {
-			String mensajeTecnico = "Se ha presentado un problema tratando de cancelar la transacción";
-			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!";
-			GestorGruposException.crearExcepcion("DATOS", exception, mensajeTecnico, mensajeUsuario,
-					this.getClass().getName(), "cancelarTransaccion");
-		}
 
+			conexion.rollback();
+		} catch (SQLException excepcion) {
+			String mensajeTecnico = "Se ha presentado un problema tratando de cancelar la transacción.";
+			String mensajeUsuario = "Upps!!! Se ha presentado un problema inesperado llevando a cabo la operación actual. Por favor intenta de nuevo!!!!";
+			GestorGruposException.crearExcepcion("DATOS", excepcion, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "cancelarTransaccion");
+		}
 	}
 
 	@Override

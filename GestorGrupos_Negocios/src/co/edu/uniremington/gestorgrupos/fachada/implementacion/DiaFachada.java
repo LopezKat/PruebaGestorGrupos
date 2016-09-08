@@ -107,13 +107,9 @@ public class DiaFachada implements IDiaFachada {
 		DAOFactory factoriaDAOs = DAOFactory.obtenerFactoria("SQLServerBDGrupos");
 
 		List<DiaDTO> listaRetorno = null;
-
 		try {
-			IDiaNegocio DiaNegocio = new DiaNegocio(factoriaDAOs);
-
-			listaRetorno = DiaNegocio.consultar(diaDTO);
-			return DiaNegocio.consultar(diaDTO);
-
+			IDiaNegocio diaNegocio = new DiaNegocio(factoriaDAOs);
+			listaRetorno = diaNegocio.consultar(diaDTO);
 		} catch (GestorGruposException exception) {
 			throw exception;
 		} catch (Exception e) {

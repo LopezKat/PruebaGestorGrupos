@@ -14,123 +14,107 @@ public class TipoProgramaFachada implements ITipoProgramaFachada {
 	@Override
 	public void crear(TipoProgramaDTO tipoProgramaDTO) {
 
-		DAOFactory factoriaDAOs = DAOFactory.obtenerFactoria("SQLServerBDGrupos");
+		DAOFactory factoriaDAOs = DAOFactory.obtenerFactoria("SqlServerBDGrupos");
 
 		try {
 			ITipoProgramaNegocio tipoProgramaNegocio = new TipoProgramaNegocio(factoriaDAOs);
-
 			factoriaDAOs.iniciarTransaccion();
 
 			tipoProgramaNegocio.crear(tipoProgramaDTO);
+
 			factoriaDAOs.confirmarTransaccion();
-
-		} catch (GestorGruposException exception) {
+		} catch (GestorGruposException excepcion) {
 			factoriaDAOs.cancelarTransaccion();
-			throw exception;
-		} catch (Exception e) {
-
+			throw excepcion;
+		} catch (Exception excepcion) {
 			factoriaDAOs.cancelarTransaccion();
 
-			String mensajeTecnico = "Se ha presentado un problema tratando de registrar el tipo de programa con el nombre: " + tipoProgramaDTO.getNombre() + "debido a que la fuente de información ya existe";
-			String mensajeUsuario = "Upps!!! El tipo de programa que intentas modificar el estado no existe.";
+			String mensajeTecnico = "Se ha presentado un problema tratando de registrar un nuevo tipo de programa con el nombre: " + tipoProgramaDTO.getNombre();
+			String mensajeUsuario = "Upps!!! No hemos logrado registrar el tipo de programa con el nombre: " + tipoProgramaDTO.getNombre() + ". Por favor intenta de nuevo!!!!";
 
-			GestorGruposException.crearExcepcion("FACHADA", null, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "crear");
+			GestorGruposException.crearExcepcion("FACHADA", excepcion, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "crear");
 		} finally {
 			factoriaDAOs.cerrarConexion();
-
 		}
 
 	}
 
 	@Override
 	public void modificar(TipoProgramaDTO tipoProgramaDTO) {
-
-
-		DAOFactory factoriaDAOs = DAOFactory.obtenerFactoria("SQLServerBDGrupos");
-
+		DAOFactory factoriaDAOs = DAOFactory.obtenerFactoria("SqlServerBDGrupos");
 		try {
 			ITipoProgramaNegocio tipoProgramaNegocio = new TipoProgramaNegocio(factoriaDAOs);
 
 			factoriaDAOs.iniciarTransaccion();
 
 			tipoProgramaNegocio.modificar(tipoProgramaDTO);
+
 			factoriaDAOs.confirmarTransaccion();
-
-		} catch (GestorGruposException exception) {
+		} catch (GestorGruposException excepcion) {
 			factoriaDAOs.cancelarTransaccion();
-			throw exception;
-		} catch (Exception e) {
-
+			throw excepcion;
+		} catch (Exception excepcion) {
 			factoriaDAOs.cancelarTransaccion();
 
-			String mensajeTecnico = "Se ha presentado un problema tratando de modificar el tipo de programa con el codigo: " + tipoProgramaDTO.getCodigo() + "debido a que la fuente de información ya existe";
-			String mensajeUsuario = "Upps!!! El tipo de programa que intentas actualizar con el nombre" + tipoProgramaDTO.getNombre() + ".Por favor intentelo de nuevo";
+			String mensajeTecnico = "Se ha presentado un problema tratando de modificar el tipo de programa con el código: " + tipoProgramaDTO.getCodigo();
+			String mensajeUsuario = "Upps!!! No hemos logrado actualizar el tipo de programa con el nombre: " + tipoProgramaDTO.getNombre() + ". Por favor intenta de nuevo!!!!";
 
-			GestorGruposException.crearExcepcion("FACHADA", null, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "modificar");
+			GestorGruposException.crearExcepcion("FACHADA", excepcion, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "modificar");
 		} finally {
 			factoriaDAOs.cerrarConexion();
-
 		}
 
 	}
 
 	@Override
 	public void cambiarFechaBaja(TipoProgramaDTO tipoProgramaDTO) {
-
-		DAOFactory factoriaDAOs = DAOFactory.obtenerFactoria("SQLServerBDGrupos");
-
+		DAOFactory factoriaDAOs = DAOFactory.obtenerFactoria("SqlServerBDGrupos");
 		try {
 			ITipoProgramaNegocio tipoProgramaNegocio = new TipoProgramaNegocio(factoriaDAOs);
 
 			factoriaDAOs.iniciarTransaccion();
 
 			tipoProgramaNegocio.cambiarFechaBaja(tipoProgramaDTO);
+
 			factoriaDAOs.confirmarTransaccion();
-
-		} catch (GestorGruposException exception) {
+		} catch (GestorGruposException excepcion) {
 			factoriaDAOs.cancelarTransaccion();
-			throw exception;
-		} catch (Exception e) {
-
+			throw excepcion;
+		} catch (Exception excepcion) {
 			factoriaDAOs.cancelarTransaccion();
 
-			String mensajeTecnico = "Se ha presentado un problema tratando de cambiar de fecha de baja del tipo de programa con el codigo: " + tipoProgramaDTO.getCodigo() + "debido a que la fuente de información ya existe";
-			String mensajeUsuario = "Upps!!! El tipo de programa  que intentas cambiar la fecha de baja con el nombre" + tipoProgramaDTO.getNombre() + ".Por favor intentelo de nuevo";
+			String mensajeTecnico = "Se ha presentado un problema tratando de cambiar la fecha de baja del tipo de programa con el código: " + tipoProgramaDTO.getCodigo();
+			String mensajeUsuario = "Upps!!! No hemos logrado cambiar el estado del tipo de programa con el nombre: " + tipoProgramaDTO.getNombre() + ". Por favor intenta de nuevo!!!!";
 
-			GestorGruposException.crearExcepcion("FACHADA", null, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "cambiarFechaBaja");
+			GestorGruposException.crearExcepcion("FACHADA", excepcion, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "cambiarFechaBaja");
 		} finally {
 			factoriaDAOs.cerrarConexion();
-
 		}
 
 	}
 
 	@Override
 	public List<TipoProgramaDTO> consultar(TipoProgramaDTO tipoProgramaDTO) {
-
-		DAOFactory factoriaDAOs = DAOFactory.obtenerFactoria("SQLServerBDGrupos");
-
+		DAOFactory factoriaDAOs = DAOFactory.obtenerFactoria("SqlServerBDGrupos");
 		List<TipoProgramaDTO> listaRetorno = null;
 
 		try {
 			ITipoProgramaNegocio tipoProgramaNegocio = new TipoProgramaNegocio(factoriaDAOs);
-
 			listaRetorno = tipoProgramaNegocio.consultar(tipoProgramaDTO);
-			return tipoProgramaNegocio.consultar(tipoProgramaDTO);
+		} catch (GestorGruposException excepcion) {
+			throw excepcion;
+		} catch (Exception excepcion) {
 
-		} catch (GestorGruposException exception) {
-			throw exception;
-		} catch (Exception e) {
+			String mensajeTecnico = "Se ha presentado un problema realizando la consulta de los tipos de programa.";
+			String mensajeUsuario = "Upps!!! No hemos consultar la información de los tipos de programa. Por favor intenta de nuevo!!!!";
 
-			String mensajeTecnico = "Se ha presentado un problema realizando la consulta los tipos de programa";
-			String mensajeUsuario = "Upps!!! No hemos podido consultar la información los tipos de programa. Por favor intentelo de nuevo";
-
-			GestorGruposException.crearExcepcion("FACHADA", null, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "cambiarFechaBaja");
+			GestorGruposException.crearExcepcion("FACHADA", excepcion, mensajeTecnico, mensajeUsuario, this.getClass().getName(), "consultar");
 		} finally {
 			factoriaDAOs.cerrarConexion();
-
 		}
-		return null;
+
+		return listaRetorno;
 	}
 
 }
+

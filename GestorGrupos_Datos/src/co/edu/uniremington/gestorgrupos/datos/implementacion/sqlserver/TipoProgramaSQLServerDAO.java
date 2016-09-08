@@ -109,7 +109,7 @@ public class TipoProgramaSQLServerDAO implements ITipoProgramaDAO {
 
 		List<TipoProgramaDTO> listaRetorno = new ArrayList<TipoProgramaDTO>();
 
-		StringBuffer setenciaSQL = new StringBuffer("SELECT IN_CODIGO, NV_NOMBRE, DA_FECHA_BAJA, NV_ESTADO FORM TBL_TIPO_PROGRAMA");
+		StringBuffer setenciaSQL = new StringBuffer("SELECT IN_CODIGO, NV_NOMBRE, DA_FECHA_BAJA, NV_ESTADO FROM TBL_TIPO_PROGRAMA");
 		boolean colocarwhere = true;
 
 		if (tipoProgramaDTO != null) {
