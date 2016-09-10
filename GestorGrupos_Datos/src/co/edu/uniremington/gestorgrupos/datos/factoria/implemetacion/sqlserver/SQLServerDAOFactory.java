@@ -65,7 +65,7 @@ public class SQLServerDAOFactory extends DAOFactory {
 			String servidorBD = "localhost\\sqlexpress";
 			String puerto = "1433";
 			String nombreBD = "BD_GESTOR_GRUPOS";
-			String usuario = "kathe";
+			String usuario = "sa";
 			String clave = "";
 
 			urlConexion = String.format(urlConexion, servidorBD, puerto, nombreBD, usuario, clave);
